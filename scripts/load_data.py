@@ -49,6 +49,7 @@ df_filtered = df_combined_all[columns_to_keep]
 # Add price moving average collumns
 df_filtered['MA_5'] = df_filtered['PRC'].rolling(window=5).mean()
 df_filtered['MA_20'] = df_filtered['PRC'].rolling(window=20).mean()
+
 df_filtered['MA_5'] = df_filtered['MA_5'].fillna(df_filtered['PRC'].expanding().mean())
 df_filtered['MA_20'] = df_filtered['MA_20'].fillna(df_filtered['PRC'].expanding().mean()) # Replace NaN values with the average of available values up to that point
 
